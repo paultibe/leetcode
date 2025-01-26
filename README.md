@@ -1,2 +1,2 @@
-# Summer2025JobLeetCodeGrind
+# leetcode
 keeping track of the grind
