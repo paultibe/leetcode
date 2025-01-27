@@ -1,18 +1,22 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        # USING LIST
-        counts = {}
-        # counts
-        for i in range(len(nums)):
-            counts[nums[i]] = counts.get(nums[i], 0) + 1
-        
-        sorted_counts = sorted(counts.items(), key = lambda mappings: mappings[1])
+        # USING HEAP
+        # time: nlogk
+        # space: n
 
+        counts = {}
+        for num in nums:
+            counts[num] = counts.get(num, 0) + 1
+        
+        heap = [] # by default min heap
+
+        for num, count in counts.items():
+            heappush(heap, (-count, num))
+        
         result = []
         for i in range(k):
-            result.append(sorted_counts.pop()[0])
+            result.append((heappop(heap)[1]))
+        return result 
 
-        return result
-        # USING HEAP
 
         
