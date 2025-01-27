@@ -6,11 +6,11 @@ class Solution:
         for i in range(len(nums)):
             counts[nums[i]] = counts.get(nums[i], 0) + 1
         
-        sorted_counts = sorted(counts.items(), key= lambda mappings: mappings[1])
+        sorted_counts = sorted(counts.items(), key = lambda mappings: mappings[1])
 
         result = []
-        for i in range(1, k + 1):
-            result.append(sorted_counts[-i][0])
+        for i in range(k):
+            result.append(sorted_counts.pop()[0])
 
         return result
         # USING HEAP
