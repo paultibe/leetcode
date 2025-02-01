@@ -1,27 +1,33 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
+        # not allowed:
+        # e -> d
+        # g -> d
+        
+        # scratch notes
+        # e -> a
+        # g -> d
+        # g -> d
+        # must have 1 to 1 mapping between characters 
+
+        # time: O(n)
+        # space: O(n)
         if len(s) != len(t):
             return False
-        
-        myMap = {}
-        mySet = set()
-        first = 0
-        second = 0
-
-        while first < len(s):
-            if s[first] in myMap:
-                # two characters map to same character
-                if t[second] != myMap[s[first]]:
+        mappingsForS = {}
+        tCharacters = set()
+        for i in range(len(s)):
+            # characters in S map to the same character in T
+            print(f"current index: {i}")
+            if s[i] in mappingsForS:
+                if t[i] != mappingsForS[s[i]]:
                     return False
-                # otherwise, keep moving
-            else:
-                # has already been mapped to
-                if t[second] in mySet: return False
-                # create mapping
-                myMap[s[first]] = t[second]
-                mySet.add(t[second])
-                print(f"creating mapping from {s[first]} to {t[second]}")
-            first += 1
-            second += 1
-
+            if s[i] not in mappingsForS and t[i] in tCharacters:
+                return False
+            tCharacters.add(t[i])
+            mappingsForS[s[i]] = t[i]
+        
         return True
+
+
+        
