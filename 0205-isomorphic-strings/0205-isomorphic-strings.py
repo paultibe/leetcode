@@ -15,16 +15,13 @@ class Solution:
         if len(s) != len(t):
             return False
         mappingsForS = {}
-        tCharacters = set()
         for i in range(len(s)):
             # characters in S map to the same character in T
-            print(f"current index: {i}")
             if s[i] in mappingsForS:
                 if t[i] != mappingsForS[s[i]]:
                     return False
-            if s[i] not in mappingsForS and t[i] in tCharacters:
+            if s[i] not in mappingsForS and t[i] in mappingsForS.values():
                 return False
-            tCharacters.add(t[i])
             mappingsForS[s[i]] = t[i]
         
         return True
