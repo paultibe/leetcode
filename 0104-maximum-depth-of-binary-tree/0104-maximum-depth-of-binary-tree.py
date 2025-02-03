@@ -5,13 +5,25 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def getMaxDepth(self, root: Optional[TreeNode], depth: int) -> int:
-        if not root:
-            return depth
-        return max(self.getMaxDepth(root.right, depth + 1), self.getMaxDepth(root.left, depth + 1))
-
     def maxDepth(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
-        return max(self.getMaxDepth(root.left, 1), self.getMaxDepth(root.right, 1)) 
+        # BFS, level order traversal
+        queue = deque()
+
+        if root:
+            queue.append(root)
+        
+        level = 0
+        while queue:
+            # go level by level
+            for i in range(len(queue)):
+                current = queue.popleft()
+                if current.left:
+                    queue.append(current.left)
+                if current.right:
+                    queue.append(current.right)
+            # only increment when you've visited all nodes on level
+            level += 1
+        
+        return level 
+        
         
