@@ -7,17 +7,20 @@ class Solution:
             if nums[mid] == target:
                 return mid
 
-            # left sorted portion
-            if nums[mid] >= nums[left]:
-                if target > nums[mid] or target < nums[left]:
-                    left = mid + 1
-                else:
-                    right = mid -1
-            else:
-                if target < nums[mid] or target > nums[right]:
+            # mid is greater
+            if (nums[mid] > target): 
+                if ((nums[left] <= nums[mid] and target >= nums[left]) or nums[left] > nums[mid]:
                     right = mid - 1
+                # after pivot
                 else:
                     left = mid + 1
+            # mid is smaller
+            else:
+                if (nums[left] <= nums[mid] or target <= nums[right]):
+                    left = mid + 1
+                # after pivot
+                else:
+                    right = mid - 1
 
         # not found
         return -1
