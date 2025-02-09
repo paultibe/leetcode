@@ -4,15 +4,11 @@ class Solution:
         # [0, 1, 1, 2]
         # 0, 1, 10, 11
         # count ones for each value in range 0 to n (inclusive)
+
+        # 111
+        # 110
         result = []
         for i in range(n + 1):
-            num = i
-            count = 0
-            while (num):
-                # check if odd (least significant bit is 1)
-                if num % 2 == 1:
-                    count += 1
-                num = num >> 1 # or divide num by two
-            result.append(count)
-        
+            result.append(bin(i).count("1"))
         return result
+        
