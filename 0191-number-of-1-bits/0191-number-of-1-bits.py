@@ -11,7 +11,7 @@ class Solution:
         # odd numbers have least significant bit of 1
         # how can isolate least significant bit? check if number is even or odd
         result = 0
-        while n: # because of constraint of max of 31 bits
+        for i in range(32): # because of constraint of max of 31 bits
             if n % 2 == 1: # or do n && 1
                 result += 1
             n = n >> 1
