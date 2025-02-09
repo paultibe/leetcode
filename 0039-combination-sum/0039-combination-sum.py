@@ -8,16 +8,15 @@ class Solution:
             if len(options) == 0 or total > target:
                 return
             # make choice
-            choice = options.copy().pop()
-            selected.append(choice)
+            selected.append(options[-1])
+            previousOptions = options.copy()
             # call with choice (it still has the option available)
-            copy = options.copy()
-            combination(selected, copy, total + choice)
+            combination(selected, options, total + options[-1])
             # afterwards, undo choice
             # if choice has been chosen, don't choose again
             selected.pop()
-            options.pop()
-            combination(selected, options, total)
+            previousOptions.pop()
+            combination(selected, previousOptions, total)
         combination([], candidates, 0)
         return result
         
