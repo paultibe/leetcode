@@ -6,15 +6,20 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        sortedVals = []
-        def inOrderTraversal(root):
+        # 1 ,2 , 3, 4
+        # result[k - 1]
+        result = []
+        nodesToTraverse = k
+        def inOrderDfs(root, nodesToTraverse):
             # base case
             if not root:
-                return
-            # recurse in order
-            inOrderTraversal(root.left)
-            sortedVals.append(root.val)
-            inOrderTraversal(root.right)
+                return 
+            inOrderDfs(root.left, nodesToTraverse)
+            result.append(root.val)
+            nodesToTraverse -= 1
+            if nodesToTraverse == 0:
+                result[k - 1]
+            inOrderDfs(root.right, nodesToTraverse)
         
-        inOrderTraversal(root)
-        return sortedVals[k - 1]
+        inOrderDfs(root, nodesToTraverse)
+        return result[k - 1]
