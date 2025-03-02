@@ -8,20 +8,20 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         # 1 ,2 , 3, 4
         # result[k - 1]
-        nodesToTraverse = k
-        result = root.val
-        def inOrderDfs(root):
-            # base case
-            nonlocal nodesToTraverse
-            nonlocal result
-            if not root:
-                return 
-            inOrderDfs(root.left)
-            nodesToTraverse -= 1
-            if nodesToTraverse == 0:
-                result = root.val
+        cnt = k
+        res = root.val
+
+        def dfs(node):
+            nonlocal cnt, res
+            if not node:
                 return
-            inOrderDfs(root.right)
+            
+            dfs(node.left)
+            cnt -= 1
+            if cnt == 0:
+                res = node.val
+                return
+            dfs(node.right)
         
-        inOrderDfs(root)
-        return result
+        dfs(root)
+        return res
