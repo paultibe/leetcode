@@ -6,6 +6,10 @@
 #         self.right = right
 class Solution:
     def isCousins(self, root: Optional[TreeNode], x: int, y: int) -> bool:
+        # early exit, root can't be a cousin
+        if root.val in [x, y]:
+            return False
+        
         # BFS
         queue = deque() # (node, parent)
         queue.append((root, None))
