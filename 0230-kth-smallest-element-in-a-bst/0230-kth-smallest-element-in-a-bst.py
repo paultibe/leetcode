@@ -17,8 +17,8 @@ class Solution:
             inOrderDfs(root.left, nodesToTraverse)
             result.append(root.val)
             nodesToTraverse -= 1
-            if nodesToTraverse == 0:
-                return result[k - 1]
+            # if nodesToTraverse == 0:
+            #     # return result[k - 1]
             inOrderDfs(root.right, nodesToTraverse)
         
         inOrderDfs(root, nodesToTraverse)
