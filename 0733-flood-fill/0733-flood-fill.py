@@ -6,11 +6,12 @@ class Solution:
         NUM_ROWS = len(image)
         NUM_COLS = len(image[0])
         visited = set()
-
-        def dfs(cell):
-            row, col = cell
+        originalColor = image[sr][sc]
+        stack = [(sr, sc)]
+        while stack:
+            row, col = stack.pop()
             image[row][col] = color
-            visited.add(cell)
+            visited.add((row, col))
             for direction in directions:
                 newRow = row + direction[0]
                 newCol = col + direction[1]
@@ -21,9 +22,6 @@ class Solution:
                     and image[newRow][newCol] == originalColor
                     and (newRow, newCol) not in visited):
                     # go there
-                    dfs((newRow, newCol))
-
-        originalColor = image[sr][sc]
-        dfs((sr, sc))
+                    stack.append((newRow, newCol))
         return image
         
