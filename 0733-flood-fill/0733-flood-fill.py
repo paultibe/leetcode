@@ -7,9 +7,9 @@ class Solution:
         NUM_COLS = len(image[0])
         visited = set()
         originalColor = image[sr][sc]
-        stack = [(sr, sc)]
-        while stack:
-            row, col = stack.pop()
+        queue = deque([(sr, sc)])
+        while queue:
+            row, col = queue.popleft()
             image[row][col] = color
             visited.add((row, col))
             for direction in directions:
@@ -22,6 +22,6 @@ class Solution:
                     and image[newRow][newCol] == originalColor
                     and (newRow, newCol) not in visited):
                     # go there
-                    stack.append((newRow, newCol))
+                    queue.append((newRow, newCol))
         return image
         
