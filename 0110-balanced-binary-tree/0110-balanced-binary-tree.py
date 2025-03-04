@@ -14,5 +14,7 @@ class Solution:
             
             return 1 + max(maxDepth(root.left), maxDepth(root.right))
         
-        return abs(maxDepth(root.right) - maxDepth(root.left)) <= 1
+        if abs(maxDepth(root.right) - maxDepth(root.left)) > 1:
+            return False
+        return self.isBalanced(root.right) and self.isBalanced(root.left)
         
