@@ -8,16 +8,17 @@ class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if not root:
             return
-        stack = [root]
-        while stack:
-            curr = stack.pop()
+        queue = deque()
+        queue.append(root)
+        while queue:
+            curr = queue.popleft()
             temp = curr.left
             curr.left = curr.right
             curr.right = temp
             if curr.left:
-                stack.append(curr.left)
+                queue.append(curr.left)
             if curr.right:
-                stack.append(curr.right)
+                queue.append(curr.right)
         return root
         
         
