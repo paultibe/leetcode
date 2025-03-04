@@ -7,19 +7,16 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        # p isn't necessarily < q
-
-        curr = root
-        while(curr):
-            if min(p.val, q.val) <= curr.val and max(p.val, q.val) >= curr.val:
-                return curr
-            if max(p.val, q.val) < curr.val:
-                curr = curr.left
-            else:
-                curr = curr.right
-
-
-
-
-        # follow ups: what if p and q don't exist in the tree?
-        
+        """
+        # if on oppostie sides or one side and root, LCA is the root
+        # case 2: if both on left (both values are smaller than root.val)
+        # case 3: if both on right
+        """
+        def dfs(root):
+            if min(p.val, q.val) <= root.val and max(p.val, q.val) >= root.val:
+                return root
+            if p.val < root.val and q.val < root.val:
+                return dfs(root.left)
+            else: # bothOnRight
+                return dfs(root.right)
+        return dfs(root)
