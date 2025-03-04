@@ -15,12 +15,7 @@ class MyQueue:
             return instance.stack2.pop()
 
     def peek(instance) -> int:
-        if instance.stack2:
-            return instance.stack2[-1]
-        else:
-            while instance.stack1:
-                instance.stack2.append(instance.stack1.pop())
-            return instance.stack2[-1]
+        return instance.stack1[0]
     
     def empty(instance) -> bool:
         return not instance.stack1 and not instance.stack2
