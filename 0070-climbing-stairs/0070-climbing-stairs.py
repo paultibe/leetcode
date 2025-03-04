@@ -1,15 +1,11 @@
 class Solution:
     def climbStairs(self, n: int) -> int:
-        cache = {}
-        def climb(currentStep):
-            option1 = 0
-            if currentStep > n:
-                return 0
-            if currentStep == n:
-                return 1
-            if currentStep in cache:
-                return cache[currentStep]
-            cache[currentStep] = climb(currentStep + 1) + climb(currentStep + 2)
-            return cache[currentStep]
-        
-        return climb(0)
+        if n == 1:
+            return 1
+        twoSteps = 1
+        oneStep = 1
+        for i in range(n - 1):
+            temp = oneStep
+            oneStep = oneStep + twoSteps
+            twoSteps = temp
+        return oneStep
