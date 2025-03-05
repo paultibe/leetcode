@@ -6,10 +6,8 @@
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
         # if fast at last element, return slow
-
-        slow = ListNode(0, head)
-        fast = head
+        slow = fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
-        return slow.next
+        return slow
