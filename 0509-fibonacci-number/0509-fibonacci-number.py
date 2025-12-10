@@ -10,16 +10,8 @@ class Solution:
         soln[0] = 0
         soln[1] = 1
 
-        def fibHelper(i):
-            # base
-            if i <= 1:
-                return soln[i]
-            # ask question
-            if soln[i] != -1:
-                return soln[i]
-
-            soln[i] = fibHelper(i-1) + fibHelper(i-2)
-            return soln[i]
+        for i in range (2, n+1):
+            soln[i] = soln[i-1] + soln[i-2]
         
-        return fibHelper(n)
+        return soln[n]
         
