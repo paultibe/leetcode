@@ -1,21 +1,29 @@
 class Solution:
     def countAndSay(self, n: int) -> str:
-        if n == 1:
-            return "1"
+        stack = []
+        # traverse down
+        # a bit weird because each element on stack is just a value (not a node etc. )
+        while n > 1:
+            stack.append(n)
+            n -= 1
         
-        prev = self.countAndSay(n - 1)
+        res = ["1"]
         
-        result = ""
-        i = 0
-        while i < len(prev):
-            # count
-            count = 1
-            while i + 1 < len(prev) and prev[i] == prev[i + 1]:
+        while stack:
+            stack.pop() # not even storing element
+            
+            next_term = []
+            i = 0
+            while i < len(res):
+                count = 1
+                while i + 1 < len(res) and res[i] == res[i + 1]:
+                    i += 1
+                    count += 1
+                
+                next_term.append(str(count))
+                next_term.append(res[i])
                 i += 1
-                count += 1
             
-            # say
-            result += str(count) + prev[i]
-            i += 1
+            res = next_term
             
-        return result
+        return "".join(res)
