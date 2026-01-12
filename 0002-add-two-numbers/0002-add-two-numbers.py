@@ -5,7 +5,7 @@
 #         self.next = next
 
 class Solution:
-    def add(self, l1: Optional[ListNode], l2: Optional[ListNode], carry: int) -> Optional[ListNode]:
+    def add(self, l1, l2, carry):
         if not l1 and not l2 and carry == 0:
             return None
 
