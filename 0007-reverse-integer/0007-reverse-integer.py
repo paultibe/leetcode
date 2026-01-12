@@ -1,13 +1,22 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        INT_MIN, INT_MAX = -2**31, 2**31 - 1
+        MAX_INT = 2**31 - 1 # 2147483647, -2147483648
         
         sign = -1 if x < 0 else 1
+        remaining_digits = abs(x)
+        reversed_val = 0
         
-        res_str = str(abs(x))[::-1]
-        res_int = int(res_str) * sign
-        
-        if res_int < INT_MIN or res_int > INT_MAX:
-            return 0
+        while remaining_digits:
+            if reversed_val > MAX_INT // 10:
+                return 0
             
-        return res_int
+            # if they are equal, check if the last digit pushes it over
+            if reversed_val == MAX_INT // 10:
+                pop = remaining_digits % 10
+                if sign == 1 and pop > 7: return 0
+                if sign == -1 and pop > 8: return 0
+
+            reversed_val = (reversed_val * 10) + (remaining_digits % 10)
+            remaining_digits //= 10
+            
+        return sign * reversed_val
