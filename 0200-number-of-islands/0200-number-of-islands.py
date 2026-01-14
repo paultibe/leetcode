@@ -5,10 +5,10 @@ class Solution:
         islands = 0
 
         def dfs(r, c):
-            stack = [(r, c)]
+            queue = deque([(r, c)])
 
-            while stack:
-                newR, newC = stack.pop()
+            while queue:
+                newR, newC = queue.popleft()
                 if (newR < 0 or newC < 0 or newR >= ROWS or
                     newC >= COLS or grid[newR][newC] == "0"
                 ):
@@ -16,7 +16,7 @@ class Solution:
 
                 grid[newR][newC] = "0"
                 for dr, dc in directions:
-                    stack.append((newR + dr, newC + dc))
+                    queue.append((newR + dr, newC + dc))
 
         for r in range(ROWS):
             for c in range(COLS):
