@@ -3,9 +3,10 @@ class Solution:
         # BRUTE FORCE
         ROWS = 9
         COLS = 9
-        SUBBOX_PER_ROW = 3
-        SUBBOX_PER_COL = 3
         SUBBOX_SIZE = 3
+        SUBBOX_PER_ROW = ROWS // SUBBOX_SIZE
+        SUBBOX_PER_COL = COLS // SUBBOX_SIZE
+        
 
         # validate rows
         for row in range(ROWS):
