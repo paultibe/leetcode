@@ -12,9 +12,9 @@ class Solution:
                 tank += net
                 end += 1
             else:
-                # Not enough gas? We must have started too late. 
-                # Move start back and add its contribution.
-                start = (start - 1 + n) % n
+                start -= 1
+                if start < 0:
+                    start = n - 1
                 tank += gas[start] - cost[start]
                 
             count += 1
