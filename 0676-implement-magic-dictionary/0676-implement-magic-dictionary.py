@@ -1,28 +1,42 @@
-import collections
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end = False
 
 class MagicDictionary:
     def __init__(self):
-        self.patterns = collections.defaultdict(int)
+        self.root = TrieNode()
 
     def buildDict(self, words):
-        # We also need to store the actual words to handle 
-        # the "exactly one" rule correctly.
-        self.words = set(words)
         for word in words:
-            for i in range(len(word)):
-                # Create a pattern like "a*ple"
-                pattern = word[:i] + "*" + word[i+1:]
-                self.patterns[pattern] += 1
+            node = self.root
+            for char in word:
+                if char not in node.children:
+                    node.children[char] = TrieNode()
+                node = node.children[char]
+            node.is_end = True
 
     def search(self, word):
-        for i in range(len(word)):
-            pattern = word[:i] + "*" + word[i+1:]
-            count = self.patterns.get(pattern, 0)
+        # Helper function for DFS search
+        def dfs(node, index, modified):
+            if index == len(word):
+                # We must have modified exactly one char AND be at the end of a word
+                return modified and node.is_end
             
-            if count > 1:
-                return True
-            if count == 1 and word not in self.words:
-                # If there's only one word matching this pattern, 
-                # it MUST be a different word than our search word.
-                return True
-        return False
+            char = word[index]
+            
+            # Option 1: The characters match
+            if char in node.children:
+                if dfs(node.children[char], index + 1, modified):
+                    return True
+            
+            # Option 2: The characters don't match (only if we haven't modified yet)
+            if not modified:
+                for next_char in node.children:
+                    if next_char != char: # Try every branch except the "correct" one
+                        if dfs(node.children[next_char], index + 1, True):
+                            return True
+            
+            return False
+
+        return dfs(self.root, 0, False)
