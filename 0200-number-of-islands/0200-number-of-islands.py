@@ -5,22 +5,20 @@ class Solution:
         islands = 0
 
         def dfs(r, c):
-            queue = deque([(r, c)])
-
-            while queue:
-                newR, newC = queue.popleft()
-                if (newR < 0 or newC < 0 or newR >= ROWS or
-                    newC >= COLS or grid[newR][newC] == "0"
-                ):
+            for dr, dc in directions:
+                newRow = r + dr
+                newCol = c + dc
+                if (newRow < 0 or newCol < 0 or newRow >= ROWS or
+                newCol >= COLS or grid[newRow][newCol] == "0"):
                     continue
-
-                grid[newR][newC] = "0"
-                for dr, dc in directions:
-                    queue.append((newR + dr, newC + dc))
+                grid[newRow][newCol] = "0"
+                dfs(newRow, newCol)
+                
 
         for r in range(ROWS):
             for c in range(COLS):
                 if grid[r][c] == "1":
+                    grid[r][c] == "0"
                     dfs(r, c)
                     islands += 1
 
