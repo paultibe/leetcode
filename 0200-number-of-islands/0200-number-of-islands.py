@@ -18,7 +18,7 @@ class Solution:
         for r in range(ROWS):
             for c in range(COLS):
                 if grid[r][c] == "1":
-                    # grid[r][c] == "0"
+                    # grid[r][c] = "0"
                     dfs(r, c)
                     islands += 1
 
