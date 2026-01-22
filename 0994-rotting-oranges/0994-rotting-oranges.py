@@ -27,23 +27,19 @@ class Solution:
                 elif grid[row][col] == 1:
                     numberOfRipeFruits += 1
         
-        print(f"number of ripe fruits: {numberOfRipeFruits}")
         # bfs
         while queue:
             for _ in range(len(queue)):
                 row, col = queue.popleft()
-                # account for starting case
-                if grid[row][col] == 1:
-                    numberOfRipeFruits -= 1
 
-                print(f"number of ripe fruits: {numberOfRipeFruits}")
-                grid[row][col] = 2
                 for toNextRow, toNextCol in toNeighbours:
                     newRow = row + toNextRow
                     newCol = col + toNextCol
                     if newRow < 0 or newCol < 0 or newRow >= ROWS or newCol >= COLUMNS or grid[newRow][newCol] != 1:
                         continue    
                     queue.append((newRow, newCol))
+                    grid[newRow][newCol] = 2
+                    numberOfRipeFruits -= 1
             # one wave of rottening
             if queue:
                 minimumMinutes += 1
