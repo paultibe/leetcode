@@ -13,12 +13,12 @@ class Solution:
 
             while q:
                 node, w = q.popleft()
+                visit.add(node)
                 if node == target:
                     return w
                 for nei, weight in adj[node]:
                     if nei not in visit:
                         q.append((nei, w * weight))
-                        visit.add(nei)
             return -1
         
         result = []
