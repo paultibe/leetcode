@@ -4,7 +4,7 @@ class Solution:
             return 0
 
         n, lengthOfEachWord = len(wordList), len(wordList[0])
-        adj = [[] for _ in range(n)]
+        neighboursOf = defaultdict(list)
         mp = {}
         for i in range(n):
             mp[wordList[i]] = i
@@ -17,8 +17,8 @@ class Solution:
                     if wordList[i][character] != wordList[j][character]:
                         numberOfDifferences += 1
                 if numberOfDifferences == 1:
-                    adj[i].append(j)
-                    adj[j].append(i)
+                    neighboursOf[i].append(j)
+                    neighboursOf[j].append(i)
 
         q, res = deque(), 1
         visit = set()
@@ -38,7 +38,7 @@ class Solution:
                 node = q.popleft()
                 if wordList[node] == endWord:
                     return res
-                for nei in adj[node]:
+                for nei in neighboursOf[node]:
                     if nei not in visit: # lookahead
                         visit.add(nei) # eager marking
                         q.append(nei)
