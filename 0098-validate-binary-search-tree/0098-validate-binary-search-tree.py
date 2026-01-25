@@ -4,17 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        # cannot check directly against parent, so must add parameter
-        def isValid(root, lower, upper):
-            # base case 
-            if not root:
-                return True 
-            # do computation
-            nodeIsValid = root.val > lower and root.val < upper
-            if not (nodeIsValid):
+        def valid(node, lowerBound, upperBound):
+            if not node:
+                return True
+            if not (lowerBound < node.val < upperBound):
                 return False
-            # recurse
-            return isValid(root.right, root.val, upper) and isValid(root.left, lower, root.val)
-        return isValid(root, float("-inf"), float("inf"))
+
+            return valid(node.left, lowerBound, node.val) and valid(
+                node.right, node.val, upperBound)
+
+        return valid(root, float("-inf"), float("inf"))
