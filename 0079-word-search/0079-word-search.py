@@ -49,7 +49,7 @@ class Solution:
 """
 retro
 outOfBounds has to be first, otherwise you get indexing error
-easy to forget backtracking
+easy to forget backtracking or get it wrong. current function should handle its own backtracking
 (!) if current cell doesn't match corresponding letter in word, have to exit
 - even if you might encounter the correct next letter later on, correct future cells may already be in visited
 can't start just at top left. if you do, by the time you reach the correct first cell, the correct future cells may already be in visited.
