@@ -3,10 +3,10 @@ class Solution:
         """
         scratch notes
         -if query[i][0] or query[i][1] not in equations, return -1
-        a/b * b/c = a/c 
-        a/a = 1
         searching for correct series of products of equations
         example input: [a/b, a/e, a/d, b/c, b/d, b/e, e/j] looking for: a/c
+        a/b * b/c = a/c 
+        a/a = 1
         first thought: 
         - model each node as the ratio where a neighbour exists if node1.denominator = node2.numerator
         - do multi-source dfs/bfs at each node where node.numerator = target.numerator
@@ -17,7 +17,8 @@ class Solution:
         need to start at first value in query, end at second
 
         - second thought
-        - edges are transitions between nodes
+        - edges are transitions between nodes, thus each ratio can be an edge.
+        - instead of adding two nodes for a/b and b/a, we add two edges to represent a -> b and b -> a
         - so if each equation becomes an edge, then when we traverse a -> b -> c, we want product of edges
 
         approach
@@ -61,17 +62,16 @@ class Solution:
 
         results = []
         for C, D in queries:
-            # Edge case: variable doesn't exist
             if C not in variables or D not in variables:
                 results.append(-1.0)
                 continue
             # Edge case: same variable
-            if C == D:
-                results.append(1.0)
-                continue
+            # if C == D:
+            #     results.append(1.0)
+            #     continue
                 
             found = False
-            # Multi-source DFS: Start at any node where numerator is C
+            # multi-source
             for start_node in [n for n in all_nodes if n[0] == C]:
                 res = dfs(start_node, D, set(), node_values[start_node])
                 if res != -1.0:
