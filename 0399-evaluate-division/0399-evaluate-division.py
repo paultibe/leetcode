@@ -51,8 +51,6 @@ class Solution:
             for queryNumerator, queryDenominator in queries:
                 if queryNumerator not in allVariables or queryDenominator not in allVariables:
                     queryResults.append(-1.0)
-                elif queryNumerator == queryDenominator:
-                    queryResults.append(1.0)
                 else:
                     wasFound = False
                     for startingNode in numeratorToNodesMap[queryNumerator]:
