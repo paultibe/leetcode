@@ -1,32 +1,35 @@
+import collections
+
 class Solution:
-    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
-        adj = collections.defaultdict(list)
-        for i, (a, b) in enumerate(equations):
-            adj[a].append((b, values[i]))
-            adj[b].append((a, 1 / values[i]))
+    def calcEquation(self, equations: list[list[str]], values: list[float], queries: list[list[str]]) -> list[float]:
+        adjacencyList = collections.defaultdict(list)
+        for i, (numerator, denominator) in enumerate(equations):
+            adjacencyList[numerator].append((denominator, values[i]))
+            adjacencyList[denominator].append((numerator, 1 / values[i]))
 
-        visited = set()
+        visitedNodes = set()
 
-        def dfs(curr, target):
-            nonlocal visited
-            if curr == target:
-                return 1.0
+        def dfs(currentNode, targetNode, currentProduct):
+            if currentNode == targetNode:
+                return currentProduct
 
-            visited.add(curr)
+            visitedNodes.add(currentNode)
 
-            for nei, weight in adj[curr]:
-                if nei not in visited:
-                    result = dfs(nei, target)
+            for neighborNode, edgeWeight in adjacencyList[currentNode]:
+                if neighborNode not in visitedNodes:
+                    # do computation before recursion!
+                    result = dfs(neighborNode, targetNode, currentProduct * edgeWeight)
                     if result != -1.0:
-                        return weight * result
+                        return result
             return -1.0
 
         results = []
-        for q_src, q_target in queries:
-            if q_src not in adj or q_target not in adj:
+        for querySource, queryTarget in queries:
+            if querySource not in adjacencyList or queryTarget not in adjacencyList:
                 results.append(-1.0)
                 continue
-            results.append(dfs(q_src, q_target))
-            visited.clear()
+            
+            results.append(dfs(querySource, queryTarget, 1.0))
+            visitedNodes.clear()
             
         return results
