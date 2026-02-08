@@ -1,29 +1,23 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        preMap = defaultdict(list)
-        for crs, pre in prerequisites:
-            preMap[crs].append(pre)
+        indegree = defaultdict(int)
+        adj = [[] for i in range(numCourses)]
+        for src, dst in prerequisites:
+            indegree[dst] += 1
+            adj[src].append(dst)
 
-        visiting = set()
+        q = deque()
+        for n in range(numCourses):
+            if indegree[n] == 0:
+                q.append(n)
 
-        def dfs(crs):
-            # cycle
-            if crs in visiting:
-                return False
-            # no prereqs
-            if preMap[crs] == []:
-                return True
+        finish = 0
+        while q:
+            node = q.popleft()
+            finish += 1
+            for nei in adj[node]:
+                indegree[nei] -= 1
+                if indegree[nei] == 0:
+                    q.append(nei)
 
-            visiting.add(crs)
-            while preMap[crs]:
-                pre = preMap[crs][-1] # Peek at the last element
-                if not dfs(pre):      # If ANY child fails, return False immediately
-                    return False
-                preMap[crs].pop()
-            visiting.remove(crs)
-            return preMap[crs] == []
-
-        for c in range(numCourses):
-            if not dfs(c):
-                return False
-        return True
+        return finish == numCourses
