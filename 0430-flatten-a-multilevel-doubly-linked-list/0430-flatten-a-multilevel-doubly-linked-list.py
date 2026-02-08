@@ -23,7 +23,6 @@ class Solution:
                 tail.next = oldNext
                 if oldNext:
                     oldNext.prev = tail
-                if oldNext:
                     return dfs(oldNext)
                 return tail
             elif not curr.next:
