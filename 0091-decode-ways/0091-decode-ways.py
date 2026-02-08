@@ -1,21 +1,22 @@
 class Solution:
     def numDecodings(self, s: str) -> int:
 
-        @lru_cache
-        def dfs(i):
-            # have a unique decoded string
+        cache = {}
+        for i in range(len(s), -1, -1):
             if i == len(s):
-                return 1
+                cache[i] = 1
+                continue
             if s[i] == '0':
-                return 0
-
-            decodeUsingOneDigit = dfs(i + 1)
+                cache[i] = 0
+                continue
+            
+            decodeUsingOneDigit = cache[i + 1]
             decodeUsingTwoDigits = 0
             if i < len(s) - 1:
                 if (s[i] == '1' or
                    (s[i] == '2' and s[i + 1] < '7')):
-                    decodeUsingTwoDigits = dfs(i + 2)
+                    decodeUsingTwoDigits = cache[i + 2]
 
-            return decodeUsingOneDigit + decodeUsingTwoDigits
+            cache[i] = decodeUsingOneDigit + decodeUsingTwoDigits
 
-        return dfs(0)
+        return cache[0]
