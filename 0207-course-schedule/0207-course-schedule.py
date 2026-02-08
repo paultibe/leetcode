@@ -15,13 +15,13 @@ class Solution:
                 return True
 
             visiting.add(crs)
-            for pre in preMap[crs]:
-                if not dfs(pre):
+            while preMap[crs]:
+                pre = preMap[crs][-1] # Peek at the last element
+                if not dfs(pre):      # If ANY child fails, return False immediately
                     return False
-            # successfully took all prereqs
+                preMap[crs].pop()
             visiting.remove(crs)
-            preMap[crs] = []
-            return True
+            return preMap[crs] == []
 
         for c in range(numCourses):
             if not dfs(c):
