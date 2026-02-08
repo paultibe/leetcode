@@ -10,26 +10,28 @@ class Node:
 
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        if not head: return head
-        
-        stack = [head]
-        prev = None # "tail" of currently flattened list
-        
-        while stack:
-            curr = stack.pop()
-            
-            # add to end of the list we're building
-            if prev:
-                prev.next = curr
-                curr.prev = prev
-            
-            if curr.next: 
-                stack.append(curr.next)
-            if curr.child: 
-                stack.append(curr.child) # (child is popped first)
+        if head == None:
+            return None
+        def dfs(curr):
+            tail = curr
+            if curr.child:
+                tail = dfs(curr.child)
+                oldNext = curr.next
+                curr.next = curr.child
+                curr.child.prev = curr
                 curr.child = None
-            
-            prev = curr
-            
-        return head
+                tail.next = oldNext
+                if oldNext:
+                    oldNext.prev = tail
+                if oldNext:
+                    return dfs(oldNext)
+                return tail
+            elif not curr.next:
+                # this is tail
+                return curr
+            else:
+                # return eventual tail
+                return dfs(curr.next)
         
+        dfs(head)
+        return head
