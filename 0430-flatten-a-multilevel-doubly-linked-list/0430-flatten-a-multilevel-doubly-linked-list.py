@@ -13,24 +13,20 @@ class Solution:
         if head == None:
             return None
         def dfs(curr):
-            tail = curr
-            if curr.child:
-                tail = dfs(curr.child)
-                oldNext = curr.next
-                curr.next = curr.child
-                curr.child.prev = curr
-                curr.child = None
-                tail.next = oldNext
-                if oldNext:
-                    oldNext.prev = tail
-                    return dfs(oldNext)
-                return tail
-            elif not curr.next:
-                # this is tail
+            if not curr.child and not curr.next:
                 return curr
-            else:
-                # return eventual tail
+            if not curr.child:
                 return dfs(curr.next)
+            tail = dfs(curr.child)
+            oldNext = curr.next
+            curr.next = curr.child
+            curr.child.prev = curr
+            curr.child = None
+            tail.next = oldNext
+            if oldNext:
+                oldNext.prev = tail
+                return dfs(oldNext)
+            return tail
         
         dfs(head)
         return head
