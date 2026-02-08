@@ -10,8 +10,8 @@ class Node:
 
 class Solution:
     def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
-        if head == None:
-            return None
+        if not head:
+            return head
         def dfs(curr):
             if not curr.child and not curr.next:
                 return curr
