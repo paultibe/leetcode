@@ -15,11 +15,10 @@ class Solution:
 
         totalShips = 0
         for nextTopX, nextTopY, nextBottomX, nextBottomY in quadrantBoundaries:
-            if nextBottomX <= nextTopX and nextBottomY <= nextTopY:
-                nextTopRight = Point(nextTopX, nextTopY)
-                nextBottomLeft = Point(nextBottomX, nextBottomY)
-                
-                if sea.hasShips(nextTopRight, nextBottomLeft):
-                    totalShips += self.countShips(sea, nextTopRight, nextBottomLeft)
+            nextTopRight = Point(nextTopX, nextTopY)
+            nextBottomLeft = Point(nextBottomX, nextBottomY)
+            
+            if sea.hasShips(nextTopRight, nextBottomLeft):
+                totalShips += self.countShips(sea, nextTopRight, nextBottomLeft)
 
         return totalShips
