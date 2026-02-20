@@ -1,14 +1,27 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        """
+        approach:
+        - scan array with two pointers
+        - expand window while element at right not in set, adding to set while expanding
+        - if element at right in set, shrink window while popping from set
+        - keep track of maxLength and currentLength (can possibly optimize)
+        """
         maxLength = 0
-        left = 0
-        right = 0
-        substring = set()
-        for right in range(len(s)):
-            while s[right] in substring:
-                substring.remove(s[left])
-                left += 1
-            substring.add(s[right])
-            if len(substring) > maxLength:
-                maxLength = len(substring)
+        left, right = 0, 0
+        charactersInWindow = set()
+        for i in range(len(s)):
+            if s[i] not in charactersInWindow:
+                charactersInWindow.add(s[i])
+                right += 1
+                maxLength = max(maxLength, right - left)
+                print(charactersInWindow)
+            else:
+                while s[i] in charactersInWindow:
+                    charactersInWindow.remove(s[left])
+                    left += 1
+                charactersInWindow.add(s[i])
+                right += 1
+                print(charactersInWindow)
         return maxLength
+        
