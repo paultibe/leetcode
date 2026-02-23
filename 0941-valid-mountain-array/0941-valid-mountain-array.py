@@ -10,12 +10,13 @@ class Solution:
                 i += 1
             return i
 
-        def is_descending(nums, start_idx):
-            if start_idx == 0 or start_idx == len(nums) - 1:
+        def is_descending(nums, peak_index):
+            # means peak wasn't peak of mountain but just cliff
+            if peak_index == 0 or peak_index == len(nums) - 1:
                 return False
             
-            for i in range(start_idx, len(nums) - 1):
-                if nums[i] <= nums[i+1]: # Must be strictly decreasing
+            for i in range(peak_index, len(nums) - 1):
+                if nums[i] <= nums[i+1]:
                     return False
             return True
 
