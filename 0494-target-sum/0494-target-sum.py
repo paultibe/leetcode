@@ -1,17 +1,19 @@
-from functools import cache
+from collections import defaultdict
 
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        S = sum(nums)
+        if abs(target) > S: return 0
+        n = len(nums)
 
-        @cache
-        def dfs(current_sum, index):
-            add_current = current_sum + nums[index]
-            sub_current = current_sum - nums[index]
-            if index == len(nums) - 1:
-                return (add_current == target) + (sub_current == target)
-            add = dfs(current_sum + nums[index], index + 1)
-            subtract = dfs(current_sum - nums[index], index + 1)
-            return add + subtract
-        
-        return dfs(0, 0)
-        
+        dp = defaultdict(int)
+        dp[(target, n)] = 1
+
+        for index in range(n - 1, -1, -1):
+            for current_sum in range(-S, S + 1):
+                add = dp[(current_sum + nums[index], index + 1)]
+                subtract = dp[(current_sum - nums[index], index + 1)]
+                
+                dp[(current_sum, index)] = add + subtract
+
+        return dp[(0, 0)]
