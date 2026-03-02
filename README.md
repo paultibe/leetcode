@@ -9,6 +9,7 @@ keeping track of the grind
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
 ## Stack
 | Problem Name | Difficulty |
@@ -38,4 +39,12 @@ keeping track of the grind
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0199-binary-tree-right-side-view](https://github.com/paultibe/leetcode/tree/main/0199-binary-tree-right-side-view/) | Medium |
+## Dynamic Programming
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
+## Backtracking
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 <!---LeetCode Topics End-->
