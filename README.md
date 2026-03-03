@@ -10,10 +10,12 @@ keeping track of the grind
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
+| [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
