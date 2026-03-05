@@ -13,6 +13,7 @@ keeping track of the grind
 | [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0794-valid-tic-tac-toe-state](https://github.com/paultibe/leetcode/tree/main/0794-valid-tic-tac-toe-state/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
+| [1822-sign-of-the-product-of-an-array](https://github.com/paultibe/leetcode/tree/main/1822-sign-of-the-product-of-an-array/) | Easy |
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -61,4 +62,8 @@ keeping track of the grind
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0794-valid-tic-tac-toe-state](https://github.com/paultibe/leetcode/tree/main/0794-valid-tic-tac-toe-state/) | Medium |
+## Math
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1822-sign-of-the-product-of-an-array](https://github.com/paultibe/leetcode/tree/main/1822-sign-of-the-product-of-an-array/) | Easy |
 <!---LeetCode Topics End-->
