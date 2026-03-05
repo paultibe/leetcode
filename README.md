@@ -65,5 +65,10 @@ keeping track of the grind
 ## Math
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0441-arranging-coins](https://github.com/paultibe/leetcode/tree/main/0441-arranging-coins/) | Easy |
 | [1822-sign-of-the-product-of-an-array](https://github.com/paultibe/leetcode/tree/main/1822-sign-of-the-product-of-an-array/) | Easy |
+## Binary Search
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0441-arranging-coins](https://github.com/paultibe/leetcode/tree/main/0441-arranging-coins/) | Easy |
 <!---LeetCode Topics End-->
