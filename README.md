@@ -54,11 +54,13 @@ keeping track of the grind
 ## Dynamic Programming
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0039-combination-sum](https://github.com/paultibe/leetcode/tree/main/0039-combination-sum/) | Medium |
+| [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 ## Matrix
 | Problem Name | Difficulty |
@@ -73,4 +75,8 @@ keeping track of the grind
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0441-arranging-coins](https://github.com/paultibe/leetcode/tree/main/0441-arranging-coins/) | Easy |
+## String
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
 <!---LeetCode Topics End-->
