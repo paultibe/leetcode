@@ -9,6 +9,7 @@ keeping track of the grind
 ## Array
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0039-combination-sum](https://github.com/paultibe/leetcode/tree/main/0039-combination-sum/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 | [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0794-valid-tic-tac-toe-state](https://github.com/paultibe/leetcode/tree/main/0794-valid-tic-tac-toe-state/) | Medium |
@@ -57,6 +58,7 @@ keeping track of the grind
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0039-combination-sum](https://github.com/paultibe/leetcode/tree/main/0039-combination-sum/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
 ## Matrix
 | Problem Name | Difficulty |
