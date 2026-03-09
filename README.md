@@ -59,6 +59,7 @@ keeping track of the grind
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/paultibe/leetcode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 | [0039-combination-sum](https://github.com/paultibe/leetcode/tree/main/0039-combination-sum/) | Medium |
 | [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
@@ -78,5 +79,10 @@ keeping track of the grind
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/paultibe/leetcode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 | [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
+## Hash Table
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0017-letter-combinations-of-a-phone-number](https://github.com/paultibe/leetcode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
 <!---LeetCode Topics End-->
