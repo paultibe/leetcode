@@ -1,6 +1,7 @@
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         res = []
+        path = ""
         digitToChar = {
             "2": "abc",
             "3": "def",
@@ -12,16 +13,17 @@ class Solution:
             "9": "wxyz",
         }
 
-        def backtrack(i, path):
+        def backtrack(i):
+            nonlocal path
             if i == len(digits):
                 res.append(path)
                 return
             for c in digitToChar[digits[i]]:
                 path = path + c
-                backtrack(i + 1, path)
+                backtrack(i + 1)
                 path = path[:len(path) - 1]
 
         if digits:
-            backtrack(0, "")
+            backtrack(0)
 
         return res
