@@ -17,7 +17,9 @@ class Solution:
                 res.append(path)
                 return
             for c in digitToChar[digits[i]]:
-                backtrack(i + 1, path + c)
+                path = path + c
+                backtrack(i + 1, path)
+                path = path[:len(path) - 1]
 
         if digits:
             backtrack(0, "")
