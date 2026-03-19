@@ -14,12 +14,14 @@ keeping track of the grind
 | [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0794-valid-tic-tac-toe-state](https://github.com/paultibe/leetcode/tree/main/0794-valid-tic-tac-toe-state/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
 | [1822-sign-of-the-product-of-an-array](https://github.com/paultibe/leetcode/tree/main/1822-sign-of-the-product-of-an-array/) | Easy |
 ## Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0636-exclusive-time-of-functions](https://github.com/paultibe/leetcode/tree/main/0636-exclusive-time-of-functions/) | Medium |
 | [0853-car-fleet](https://github.com/paultibe/leetcode/tree/main/0853-car-fleet/) | Medium |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -85,4 +87,20 @@ keeping track of the grind
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/paultibe/leetcode/tree/main/0017-letter-combinations-of-a-phone-number/) | Medium |
+## Linked List
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
+## Design
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
+## Doubly-Linked List
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
+## Data Stream
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [1472-design-browser-history](https://github.com/paultibe/leetcode/tree/main/1472-design-browser-history/) | Medium |
 <!---LeetCode Topics End-->
