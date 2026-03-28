@@ -58,6 +58,7 @@ keeping track of the grind
 | ------- | ------- |
 | [0131-palindrome-partitioning](https://github.com/paultibe/leetcode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0494-target-sum](https://github.com/paultibe/leetcode/tree/main/0494-target-sum/) | Medium |
+| [1931-painting-a-grid-with-three-different-colors](https://github.com/paultibe/leetcode/tree/main/1931-painting-a-grid-with-three-different-colors/) | Hard |
 ## Backtracking
 | Problem Name | Difficulty |
 | ------- | ------- |
